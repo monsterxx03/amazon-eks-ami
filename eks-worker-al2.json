@@ -9,13 +9,15 @@
     "instance_type": "m4.large",
     "source_ami_id": "",
     "encrypted": "false",
-    "kms_key_id": ""
+    "kms_key_id": "",
+    "subnet_id": ""
   },
 
   "builders": [
     {
       "type": "amazon-ebs",
       "region": "{{user `aws_region`}}",
+      "subnet_id": "{{user `subnet_id` }}",
       "source_ami": "{{user `source_ami_id`}}",
       "source_ami_filter": {
         "filters": {
