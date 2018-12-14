@@ -72,3 +72,19 @@ templates in the same bucket under the path `s3://amazon-eks/1.10.3/2018-06-05/`
 ## License Summary
 
 This sample code is made available under a modified MIT license. See the LICENSE file.
+
+
+## Notes for custom build
+
+create var.json:
+
+    {
+        "aws_region": "us-east-1",
+        "ami_name": "amazon-eks-node-1.11-1544769045",
+        "encrypted": "true",
+        "subnet_id": "subnet-xxx",
+        "binary_bucket_path": "1.11.5/2018-12-06/bin/linux/amd64"
+    }
+
+
+packer build -var-file=var.json eks-worker-al2.json
